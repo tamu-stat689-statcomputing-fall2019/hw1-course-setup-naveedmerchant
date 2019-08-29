@@ -18,13 +18,14 @@ generateY <- function(X, beta, sigma, seed = 5832652){
 calculateBeta <- function(X, Y){
   # Calculate beta_LS
   
+  
   # Return beta
   return(beta_LS)
 }
 
 # Calculate MSE
 calculateMSE <- function(beta, beta_LS){
-  
+  MSE = sum((beta - beta_LS)^2)
   # Return MSE - error ||beta - beta_LS||_2^2
   return(MSE)
 }
