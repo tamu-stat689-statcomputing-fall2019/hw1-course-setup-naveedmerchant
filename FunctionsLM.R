@@ -5,7 +5,9 @@
 # seed  - starting seed value
 generateY <- function(X, beta, sigma, seed = 5832652){
   #[ToDo] Set seed and generate Y following linear model
-  
+  set.seed(seed = seed)
+  epsilon = rnorm(n = nrow(X), mean = 0, sd = sigma)
+  Y = X%*%beta + epsilon
   # Return Y
   return(Y)
 }
