@@ -17,8 +17,7 @@ generateY <- function(X, beta, sigma, seed = 5832652){
 # Y -response
 calculateBeta <- function(X, Y){
   # Calculate beta_LS
-  
-  
+  beta_LS = ((t(X)%*%(X))^(-1))%*%(t(X)%*%(Y))
   # Return beta
   return(beta_LS)
 }
