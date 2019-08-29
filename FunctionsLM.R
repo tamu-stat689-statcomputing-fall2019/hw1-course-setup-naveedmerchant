@@ -5,8 +5,12 @@
 # seed  - starting seed value
 generateY <- function(X, beta, sigma, seed = 5832652){
   #[ToDo] Set seed and generate Y following linear model
+  #Sets random seed
   set.seed(seed = seed)
+  #Generates normal noise component
   epsilon = rnorm(n = nrow(X), mean = 0, sd = sigma)
+  #Generates signal component
+  signal = X%*%beta
   Y = X%*%beta + epsilon
   # Return Y
   return(Y)
@@ -16,9 +20,12 @@ generateY <- function(X, beta, sigma, seed = 5832652){
 # X - design matrix
 # Y -response
 calculateBeta <- function(X, Y){
+  #Compute (X^T)(X)
+  XtransposeX = crossprod(X)
+  #Compute (X^T)(Y)
+  XtransposeY = crossprod(X,Y)
   # Calculate beta_LS
-  
-  
+  beta_LS = solve(XtransposeX,XtransposeY)
   # Return beta
   return(beta_LS)
 }
